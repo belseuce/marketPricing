@@ -5,5 +5,5 @@ import j.r.a.supermarket.model.PricingPartition;
 import java.util.List;
 
 public interface ICostProcessor {
-    double process(List<PricingPartition> pricingPartitions);
+    double compute(List<PricingPartition> pricingPartitions);
 }

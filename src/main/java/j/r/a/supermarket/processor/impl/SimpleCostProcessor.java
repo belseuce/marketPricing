@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SimpleCostProcessor implements ICostProcessor {
     @Override
-    public double process(List<PricingPartition> pricingPartitions) {
+    public double compute(List<PricingPartition> pricingPartitions) {
         return 0;
     }
 }

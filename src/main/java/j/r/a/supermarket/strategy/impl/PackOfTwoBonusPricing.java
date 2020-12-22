@@ -1,7 +1,9 @@
 package j.r.a.supermarket.strategy.impl;
 
 import j.r.a.supermarket.model.Article;
+import j.r.a.supermarket.model.Price;
 import j.r.a.supermarket.model.PricingPartition;
+import j.r.a.supermarket.model.Quantity;
 import j.r.a.supermarket.strategy.IPricingStrategy;
 import javafx.util.Pair;
 
@@ -10,10 +12,10 @@ import java.util.List;
 
 public class PackOfTwoBonusPricing implements IPricingStrategy {
     private static final String CODE = "CODE03";
-    private static final Pair<Integer, Double> DEFAULT_PRICE = new Pair<>(3, 1.30);
+    private static final Pair<Quantity, Price> DEFAULT_PRICE = new Pair<>(new Quantity(3), new Price(1.30));
 
     @Override
-    public Pair<Integer, Double> getInitialPrice() {
+    public Pair<Quantity, Price> getInitialPrice() {
         return DEFAULT_PRICE;
     }
 
@@ -23,7 +25,7 @@ public class PackOfTwoBonusPricing implements IPricingStrategy {
     }
 
     @Override
-    public List<PricingPartition> getPricingPartitions(int quantity, Article article) {
+    public List<PricingPartition> getPricingPartitions(Quantity quantity, Article article) {
         return Collections.emptyList();
     }
 }
