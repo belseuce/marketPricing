@@ -13,24 +13,23 @@ import java.util.List;
 
 class PackOfThreePricingTest {
 
-    private final Article article = new Article("Orange", "fruit");
-
+    private final Article article = new Article("orange", "fruit");
 
     @Test
     public void should_give_1_pack_of_3_and_1_single_partitions_for_4_articles() {
-        IPricingStrategy singleStrategy = new DefaultByUnitPricing();
         IPricingStrategy packStrategy = new PackOfThreePricing();
-        PricingPartition singlePart = PricingPartition.builder()
-                .article(article)
-                .quantity(new Quantity(1))
-                .pricingStrategy(singleStrategy)
-                .build();
+        IPricingStrategy singleStrategy = new DefaultByUnitPricing();
         PricingPartition packPart = PricingPartition.builder()
                 .article(article)
                 .quantity(new Quantity(1))
                 .pricingStrategy(packStrategy)
                 .build();
-        List<PricingPartition> pricingPartitions = Arrays.asList(singlePart, packPart);
+        PricingPartition singlePart = PricingPartition.builder()
+                .article(article)
+                .quantity(new Quantity(1))
+                .pricingStrategy(singleStrategy)
+                .build();
+        List<PricingPartition> pricingPartitions = Arrays.asList(packPart, singlePart);
         Assert.assertTrue(pricingPartitions.stream().anyMatch(pricingPart -> pricingPart.getPricingStrategy().equals(singleStrategy)));
         Assert.assertTrue(pricingPartitions.stream().anyMatch(pricingPart -> pricingPart.getPricingStrategy().equals(packStrategy)));
 
@@ -39,8 +38,8 @@ class PackOfThreePricingTest {
 
     @Test
     public void should_give_1_pack_of_3_and_2_single_partitions_for_5_articles() {
-        IPricingStrategy singleStrategy = new DefaultByUnitPricing();
         IPricingStrategy packStrategy = new PackOfThreePricing();
+        IPricingStrategy singleStrategy = new DefaultByUnitPricing();
         PricingPartition singlePart = PricingPartition.builder()
                 .article(article)
                 .quantity(new Quantity(2))
@@ -51,7 +50,7 @@ class PackOfThreePricingTest {
                 .quantity(new Quantity(1))
                 .pricingStrategy(packStrategy)
                 .build();
-        List<PricingPartition> pricingPartitions = Arrays.asList(singlePart, packPart);
+        List<PricingPartition> pricingPartitions = Arrays.asList(packPart, singlePart);
         Assert.assertTrue(pricingPartitions.stream().anyMatch(pricingPart -> pricingPart.getPricingStrategy().equals(singleStrategy)));
         Assert.assertTrue(pricingPartitions.stream().anyMatch(pricingPart -> pricingPart.getPricingStrategy().equals(packStrategy)));
 
