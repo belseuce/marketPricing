@@ -26,6 +26,12 @@ public class DefaultByUnitPricing implements IPricingStrategy {
 
     @Override
     public List<PricingPartition> getPricingPartitions(Quantity quantity, Article article) {
-        return Collections.emptyList();
+        return Collections.singletonList(
+                PricingPartition.builder()
+                        .article(article)
+                        .quantity(quantity)
+                        .pricingStrategy(this)
+                        .build()
+        );
     }
 }
