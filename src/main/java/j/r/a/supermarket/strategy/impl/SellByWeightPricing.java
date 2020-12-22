@@ -8,7 +8,6 @@ import j.r.a.supermarket.strategy.IPricingStrategy;
 import javafx.util.Pair;
 import lombok.EqualsAndHashCode;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

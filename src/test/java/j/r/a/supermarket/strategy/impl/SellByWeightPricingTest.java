@@ -8,11 +8,8 @@ import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SellByWeightPricingTest {
     private final Article article = new Article("Orange", "fruit");
