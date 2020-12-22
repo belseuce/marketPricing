@@ -6,10 +6,12 @@ import j.r.a.supermarket.model.PricingPartition;
 import j.r.a.supermarket.model.Quantity;
 import j.r.a.supermarket.strategy.IPricingStrategy;
 import javafx.util.Pair;
+import lombok.EqualsAndHashCode;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
+@EqualsAndHashCode
 public class PackOfTwoBonusPricing implements IPricingStrategy {
     private static final String CODE = "CODE03";
     private static final Pair<Quantity, Price> DEFAULT_PRICE = new Pair<>(new Quantity(3), new Price(1.30));
@@ -26,6 +28,20 @@ public class PackOfTwoBonusPricing implements IPricingStrategy {
 
     @Override
     public List<PricingPartition> getPricingPartitions(Quantity quantity, Article article) {
-        return Collections.emptyList();
+        final int nbPacks = quantity.getValue() / 3;
+        final int singlePacks = quantity.getValue() % 3;
+
+        return Arrays.asList(
+                PricingPartition.builder()
+                        .article(article)
+                        .quantity(new Quantity(nbPacks))
+                        .pricingStrategy(this)
+                        .build(),
+                PricingPartition.builder()
+                        .article(article)
+                        .quantity(new Quantity(singlePacks))
+                        .pricingStrategy(DefaultByUnitPricing.create())
+                        .build()
+        );
     }
 }
