@@ -18,11 +18,11 @@ class SellByWeightPricingTest {
     private final Article article = new Article("Orange", "fruit");
 
     @Test
-    public void should_give_2_partitions_for_8_articles() {
+    public void should_give_1_partition_for_8_articles() {
         IPricingStrategy weightStrategy = new SellByWeightPricing();
         PricingPartition fourOncesPart = PricingPartition.builder()
                 .article(article)
-                .quantity(new Quantity(2))
+                .quantity(new Quantity(8))
                 .pricingStrategy(weightStrategy)
                 .build();
         List<PricingPartition> pricingPartitions = Collections.singletonList(fourOncesPart);
