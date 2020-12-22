@@ -10,8 +10,7 @@ import java.util.List;
 
 public class defaultByUnitPricing implements IPricingStrategy {
     private static final String CODE = "CODE00";
-    private static String defaultUnit = "pce";
-    Pair<Integer, Double> DEFAULT_PRICE = new Pair<>(1, 0.65);
+    private static final Pair<Integer, Double> DEFAULT_PRICE = new Pair<>(1, 0.65);
 
     @Override
     public Pair<Integer, Double> getInitialPrice() {

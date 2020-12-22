@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SellByWeightPricing implements IPricingStrategy {
     private static final String CODE = "CODE01";
-    Pair<Integer, Double> DEFAULT_PRICE = new Pair<>(1000,1.99);
+    private static final Pair<Integer, Double> DEFAULT_PRICE = new Pair<>(1000,1.99);
 
 
     @Override

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PackOfTwoBonusPricing implements IPricingStrategy {
     private static final String CODE = "CODE03";
-    private Pair<Integer, Double> DEFAULT_PRICE = new Pair<>(3, 1.30);
+    private static final Pair<Integer, Double> DEFAULT_PRICE = new Pair<>(3, 1.30);
 
     @Override
     public Pair<Integer, Double> getInitialPrice() {
