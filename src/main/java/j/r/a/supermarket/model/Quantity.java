@@ -7,6 +7,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Quantity {
     @Getter @Setter
-    private int item;
+    private int value;
 
 }

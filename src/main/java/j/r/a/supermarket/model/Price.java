@@ -7,5 +7,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Price {
     @Setter @Getter
-    private double item;
+    private double value;
 }

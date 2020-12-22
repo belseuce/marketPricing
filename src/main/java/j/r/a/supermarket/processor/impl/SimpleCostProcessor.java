@@ -8,6 +8,8 @@ import java.util.List;
 public class SimpleCostProcessor implements ICostProcessor {
     @Override
     public double compute(List<PricingPartition> pricingPartitions) {
-        return 0;
+        return pricingPartitions.stream().mapToDouble(
+                pricingPartition -> pricingPartition.getQuantity().getValue() *
+                        pricingPartition.getPricingStrategy().getInitialPrice().getValue().getValue()).sum();
     }
 }
