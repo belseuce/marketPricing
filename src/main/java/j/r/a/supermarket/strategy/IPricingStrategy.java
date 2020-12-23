@@ -4,7 +4,7 @@ import j.r.a.supermarket.model.Article;
 import j.r.a.supermarket.model.Price;
 import j.r.a.supermarket.model.PricingPartition;
 import j.r.a.supermarket.model.Quantity;
-import javafx.util.Pair;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
 
